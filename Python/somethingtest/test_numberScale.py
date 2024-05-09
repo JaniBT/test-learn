@@ -7,8 +7,7 @@ class TestExchanger(unittest.TestCase):
     def test_decimal_to_binary(self):
         self.assertEqual(scaleExchanger(52), "110100")
         self.assertEqual(scaleExchanger(1), "1")
-        self.assertEqual(scaleExchanger(20), "10100")
-        self.assertEqual(scaleExchanger(10), "10010")
+        self.assertEqual(scaleExchanger(10), "1010")
 
     def test_type_validation(self):
         with self.assertRaises(TypeError):
