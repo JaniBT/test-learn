@@ -1,9 +1,20 @@
 import { gradeValidation } from "./grade.js"
 
-test("if grade is between 1 and 5 return true", () => {
-    expect(gradeValidation(5)).toBe(true)
+describe("Happy path", function () {
+    test.each([
+        [1, true],
+        [2, true],
+        [3, true],
+        [6, false],
+        [-1, false],
+        [0, false],
+    ])("if grade is %p return %p", (grade, expected) => {
+        expect(gradeValidation(grade)).toBe(expected)
+    })
 })
 
-test("if grade is NOT between 1 and 5 return false", () => {
-    expect(gradeValidation(7)).toBe(false)
+describe("Error path", function () {
+    test("type error", function () {
+        expect(() => gradeValidation('alma')).toThrow(TypeError("Invalid type"))
+    })
 })
